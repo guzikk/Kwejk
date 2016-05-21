@@ -1,0 +1,12 @@
+<div class='page-header'>
+	<h1> Delete Mem </h1>
+</div>
+<div class='font'>
+	<%= form_for(:mem, url:{action: 'destroy', id:@mem.id }, method: :delete) do |f| %>
+		Are you sure to delete Mem: <%= @mem.name%> 
+		<p class='margin'> 
+			<%= link_to('Back', {action:'index'}, class:'btn btn-primary')%>
+			<%= submit_tag('Delete', class:'btn btn-danger')%>
+		</p>
+	<%end%>
+</div>

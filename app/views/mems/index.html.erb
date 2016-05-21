@@ -1,0 +1,21 @@
+<div class='page-header'>
+	<h1>Mems</h1>
+</div>
+<table class='table table-striped'>
+	<tr class='info'>
+		<th>Product name</th>
+		<th>Price</th>
+		<th>Operation</th>
+	</tr>
+
+	<% @mem.each do |mem|%>
+		<tr>
+			<td class='center'><%= mem.name%></td>
+			 <td class='actions'>
+				<%= link_to('Show', {action: 'show', id: mem.id}, class: 'btn btn-xs btn-default')%>
+				<%= link_to('Edit', {action: 'edit', id: mem.id}, class: 'btn btn-xs btn-primary')%>
+				<%= link_to('Delete', {action: 'delete', id: mem.id}, class: 'btn btn-xs btn-danger')%> 
+			</td>
+		</tr>
+	<%end%>
+</table>
