@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     member do
       get 'delete'
     end
+
+    collection do
+      get 'my'
+      get 'inactive'
+    end
   end
   devise_for :admins
   devise_for :users

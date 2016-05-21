@@ -5,3 +5,4 @@
 <%= mem.text_area :description %> <br>
 <%= mem.label :image %> <br>
 <%= mem.file_field :image %> <br>
+<%= mem.hidden_field :user_id, value: "#{current_user.id}"%>

@@ -1,9 +1,10 @@
 class MemsController < ApplicationController
-  
-before_action :set_mem, only: [:show, :edit, :update, :delete]
+ 
+	before_action :authenticate_user!, except: [:index, :show] 
+	before_action :set_mem, only: [:show, :edit, :update, :delete]
 
 	def index
-		@mem = Mem.all
+		@mem = Mem.active
 	end
 
 	def show
@@ -40,6 +41,16 @@ before_action :set_mem, only: [:show, :edit, :update, :delete]
     	redirect_to action:'index'
   	end
 
+  	def my
+  		@mem = current_user.mems
+  		render :index
+      p @mem
+  	end
+
+  	def inactive
+  		@mem = Mem.inactive
+  		render :index
+  	end
   
   	private
 	
@@ -48,7 +59,7 @@ before_action :set_mem, only: [:show, :edit, :update, :delete]
   	end
 
   	def mem_params
-  		params.require(:mem).permit(:name, :description, :image)
+  		params.require(:mem).permit(:name, :description, :image, :user_id)
   	end
 
 end

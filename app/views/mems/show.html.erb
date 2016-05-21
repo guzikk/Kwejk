@@ -2,18 +2,13 @@
   <h1>Mem: <%= @mem.name%></h1>
 </div>
 <%= image_tag @mem.image if @mem.image_file_name != nil%>
-<table class='table font margin'>
-  <tr>
-    <th>Description:</th>
-    <th>Price: </th>
-    <th>Category:</th>
-  </tr>
 
-  <tr>
-    <td><%= @mem.description%></td>
-    
-  </tr>
-</table>
+	<tr class='center'><%= @mem.description%></tr><br>
 
+	
+	
+<p class='actions'>
 <%= link_to('Back', {action:'index'}, class:'btn btn-primary')%>
 <%= link_to('Edit', {action:'edit', id:@mem.id}, class: 'btn btn-primary')%>
+<%= link_to('Delete', {action: 'delete', id: @mem.id}, class: 'btn btn-danger') %>
+</p>
