@@ -4,11 +4,25 @@
 <%= image_tag @mem.image if @mem.image_file_name != nil%>
 
 	<tr class='center'><%= @mem.description%></tr><br>
-
 	
-	
+<% if user_signed_in? && @mem.user_id == current_user.id %>	
 <p class='actions'>
 <%= link_to('Back', {action:'index'}, class:'btn btn-primary')%>
 <%= link_to('Edit', {action:'edit', id:@mem.id}, class: 'btn btn-primary')%>
 <%= link_to('Delete', {action: 'delete', id: @mem.id}, class: 'btn btn-danger') %>
 </p>
+<%end%>
+
+<h1>User Posts: </h1>
+<% @mem.posts.each do |post| %>
+<%= post.content%>
+<%end%>
+
+<% if user_signed_in? %>
+<%= form_for(:post, url:{controller: 'posts', action: 'create'}) do |post| %>
+<%= post.text_area :content %>
+<%= post.hidden_field :user_id, value: "#{current_user.id}"%>
+<%= post.hidden_field :mem_id, value: "#{@mem.id}"%>
+<%= post.submit "Sent" %>
+<%end%>
+<%end%>

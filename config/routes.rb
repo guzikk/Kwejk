@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   #get 'mems/index'
+  resources :posts
   resources :mems do
     member do
       get 'delete'

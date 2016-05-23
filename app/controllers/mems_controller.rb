@@ -8,6 +8,7 @@ class MemsController < ApplicationController
 	end
 
 	def show
+    @post = Post.new
  	end
 
     def new
@@ -42,14 +43,12 @@ class MemsController < ApplicationController
   	end
 
   	def my
-  		@mem = current_user.mems
+  		@mem = current_user.mems.active
   		render :index
-      p @mem
-  	end
+    end
 
   	def inactive
   		@mem = Mem.inactive
-  		render :index
   	end
   
   	private

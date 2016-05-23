@@ -1,12 +1,12 @@
 <div class='page-header'>
-	<h1>Mems</h1>
+	<h1>My Inactive Mems</h1>
 </div>
 <table>
 <% @mem.each do |mem|%>
 
 	<tr class='center'><%= mem.name%></tr><br>
 	<tr class='center'><%= mem.description%></tr><br>
-	<tr class='center'><%= link_to(image_tag(mem.image),{action:'show', id:mem.id}) %></tr><br>
+	<tr class='center'><%= image_tag(mem.image) %></tr><br>
 	
 
 	
