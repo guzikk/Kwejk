@@ -1,0 +1,7 @@
+= simple_form_for @mem do |f|
+  = f.input :name 
+  = f.input :description
+  = f.input :image
+  = f.hidden_field :user_id, value: "#{current_user.id}"
+  = link_to 'back', mems_path, class: 'btn btn-default'
+  = f.button :submit, @mem.new_record? ? "Create" : "Update"

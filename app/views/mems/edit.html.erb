@@ -1,9 +1,0 @@
-<div class='page-header'>
-	<h1>Edit Mem</h1>
-</div>
-
-<%= form_for(:mem, url:{action:'update', id:@mem.id}, method: :put ) do |field|%>
-	<%= render(partial: 'form', locals:{mem: field})%>
-	<%= link_to('Back', {action: 'index'}, class: 'btn btn-warning')%>
-	<%= submit_tag('update', class:'btn btn-primary')%>
-<%end%>

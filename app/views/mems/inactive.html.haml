@@ -1,0 +1,11 @@
+.page-header
+	%h1 My Inactive Mems
+
+%table
+	-@mem.each do |mem|
+		%tr
+			%th.center= mem.name 
+		%tr
+			%th.center= mem.description 
+		%tr
+			%th.center= image_tag(mem.image)	

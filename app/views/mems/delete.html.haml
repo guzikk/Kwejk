@@ -1,0 +1,11 @@
+.page-header
+	Delete Mem
+
+.font
+	=simple_form_for :mem, url:{action: 'destroy', id:@mem}, method: :delete do |f|
+		Are you sure to delete Mem: 
+		=@mem.name 
+		%p.margin 
+			=link_to('Back', {action:'index'}, class:'btn btn-primary')
+			=submit_tag('Delete', class:'btn btn-danger')
+		

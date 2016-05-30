@@ -1,0 +1,9 @@
+.page-header
+	%h1 Mems
+
+%table
+	- @mem.each do |mem|
+		%tr.center= mem.name
+		%tr.center= mem.description
+		%tr.center= link_to(image_tag(mem.image),{action:'show', id:mem.id})
+	
